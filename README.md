@@ -1,6 +1,10 @@
 # ntoskrnl-metadata
 
-An IDA Python script for extracting critical kernel metadata from Windows ntoskrnl.exe binaries. This tool automatically extracts function RVAs and `_EPROCESS` structure offsets required for kernel exploitation and analysis.
+An IDA Python script for extracting critical kernel metadata from Windows ntoskrnl.exe binaries. This tool automatically extracts function RVAs and `_EPROCESS` structure offsets required for developing exploits targeting **CVE-2026-40369** and other kernel vulnerabilities.
+
+## Purpose
+
+This tool aids in compiling successful exploits for **CVE-2026-40369** by automatically extracting version-specific kernel metadata that must be hardcoded into exploit payloads. The extracted values ensure proper function hooking and structure member access across different Windows builds and patch levels.
 
 ## Features
 
@@ -17,7 +21,7 @@ An IDA Python script for extracting critical kernel metadata from Windows ntoskr
   - `Token`
   - `ImageFileName`
 
-- **Ready-to-Use Output**: Generates formatted output ready to paste directly into exploit code
+- **Ready-to-Use Output**: Generates formatted output ready to paste directly into CVE-2026-40369 exploit code
 
 ## Requirements
 
@@ -74,7 +78,7 @@ This script works with any Windows ntoskrnl.exe version where PDB symbols are av
 
 - RVAs are calculated relative to the image base displayed in the output
 - All offsets are in bytes (converted from IDA's bit offsets)
-- The generated output format is compatible with kernel exploit frameworks
+- The generated output format is compatible with CVE-2026-40369 exploit frameworks
 - Ensure you have the correct PDB version matching your ntoskrnl.exe
 
 ## License
